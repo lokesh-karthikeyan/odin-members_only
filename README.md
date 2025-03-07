@@ -1,24 +1,5 @@
-# README
+# The Odin Project - Members Only!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It's a project related to **Authentication**.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The *Clubhouse* members can view both the *posts* and the *authors* of those posts on the website, whereas the non-members can view *only posts*.
