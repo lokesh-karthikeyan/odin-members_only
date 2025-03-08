@@ -6,7 +6,7 @@
     </h3>
     <ol>
       <% @post.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
+        <li><%= message %></li>
       <% end %>
     </ol>
   <% end %>
@@ -15,5 +15,7 @@
   <%= form.text_field :title %>
 
   <div><%= form.label :content %></div>
-  <%= form.text_area :content, placeholder: "Enter your content..." %>
+  <%= form.text_area :content, placeholder: "Enter your content..." %><br>
+
+  <%= form.submit "Create post" %>
 <% end %>
