@@ -1,0 +1,50 @@
+<div
+  style="display: flex; justify-content: space-around; background-color: coral; margin-bottom: 20px;"
+>
+  <h1>Welcome to the Club house</h1>
+  <div style="display: flex; gap: 2rem; align-items: center">
+    <%= button_to "Create Post", new_post_path, method: :get %>
+    <% if user_signed_in? %>
+      <%= button_to "Log out",
+      destroy_user_session_path,
+      method: "delete",
+      data: {
+        turbo: "false",
+      } %>
+    <% else %>
+      <%= button_to "Log in", new_user_session_path, method: :get %>
+    <% end %>
+  </div>
+</div>
+<div style="display: flex; gap: 2rem; flex-wrap: wrap">
+  <% @post.all.each do |p| %>
+    <% if user_signed_in? %>
+      <div
+        style="background-color: #d3d3d3; border: solid 2px #000; padding: 10px 40px; flex-grow: 1; width: 500px"
+      >
+        <article>
+          <h3>
+            <%= p.title %>
+          </h3>
+          <p>
+            <%= p.content %>
+          </p>
+        </article>
+        <h4
+          style="text-align: end; font-style: italic; border-top: solid 2px #000; padding-top: 10px"
+        ><%= p.user.name %></h4>
+      </div>
+    <% else %>
+      <article
+        style="background-color: #d3d3d3; border: solid 2px #000; padding: 10px 40px; width: 500px; flex-grow: 1"
+      >
+        <h3>
+          <%= p.title %>
+        </h3>
+        <p>
+          <%= p.content %>
+        </p>
+      </article>
+    <% end %>
+  <% end %>
+</div>
